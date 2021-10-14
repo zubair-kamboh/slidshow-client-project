@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>jR3DCarousel - a jQuery 3D Responsive Carousel</title>
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        background: #0a0a07;
+        text-align: center;
+        overflow-x: hidden;
+      }
+
+      .jR3DCarouselGallery,
+      .jR3DCarouselGalleryCustomeTemplate {
+        margin: 0 auto; /* optional - if want to center align */
+      }
+    </style>
+    <style>
+      .jR3DCarouselGalleryCustomeTemplate .captions {
+        position: relative;
+        padding: 4px 0;
+        bottom: 27px;
+        background: #ec1c8e;
+        display: block;
+      }
+      .jR3DCarouselGalleryCustomeTemplate a {
+        text-decoration: none;
+      }
+    </style>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"
+    ></script>
+    <script type="text/javascript" src="dist/jR3DCarousel.min.js"></script>
+    <!-- <script type="text/javascript" src="src/jR3DCarousel.js"></script> -->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var slideImages = [
+          { src: './images/1.png' },
+          { src: './images/2.png' },
+          { src: './images/3.png' },
+        ]
+        //var jR3DCarousel;
+
+        jR3DCarousel = $('.jR3DCarouselGallery').jR3DCarousel({
+          width: window.innerWidth /* largest allowed width */,
+          height: window.innerHeight /* largest allowed height */,
+          slides: slideImages /* array of images source */,
+          slideLayout: 'cover',
+          perspective: 0,
+          animation: 'slide3D',
+          animationCurve: 'ease-in',
+          animationDuration: 1200,
+          autoplay: false,
+        })
+
+        // var carouselCustomeTemplateProps = {
+        //   width: 100 /* largest allowed width */,
+        //   height: 100 /* largest allowed height */,
+        //   slideLayout:
+        //     'contain' /* "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio) */,
+        //   animation:
+        //     'slide3D' /* slide | scroll | fade | zoomInSlide | zoomInScroll */,
+        //   animationCurve: 'ease',
+        //   animationDuration: 1900,
+        //   animationInterval: 2000,
+        //   slideClass: 'jR3DCarouselCustomSlide',
+        //   autoplay: false,
+        //   controls: false /* control buttons */,
+        //   navigation: '' /* circles | squares | '' */,
+        //   perspective: 2200,
+        //   rotationDirection: 'ltr',
+        //   onSlideShow: slideShownCallback,
+        // }
+        function slideShownCallback($slide) {
+          console.log('Slide shown: ', $slide.find('img').attr('src'))
+        }
+
+        jR3DCarouselCustomeTemplate = $(
+          '.jR3DCarouselGalleryCustomeTemplate'
+        ).jR3DCarousel(carouselCustomeTemplateProps)
+      })
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jR3DCarouselGallery"></div>
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <!-- <h2>jR3DCarousel - with custom slides template & perspective</h2>
+      <div class="jR3DCarouselGalleryCustomeTemplate">
+        <div class="jR3DCarouselCustomSlide">
+          <img src="./images/1.jpg" />
+          <div class="captions">This is custom text slide 1</div>
+        </div>
+        <div class="jR3DCarouselCustomSlide">
+          <a
+            href="http://vinayakjadhav.github.io/jR3DCarousel/"
+            target="_blank"
+          >
+            <img src="./images/2.jpg" />
+            <span class="captions">This is clickable slide 2</span>
+          </a>
+        </div>
+        <div class="jR3DCarouselCustomSlide">
+          <img src="./images/3.jpg" />
+          <div class="captions">This is custom text slide 3</div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br /> -->
+    </div>
+  </body>
+</html>
